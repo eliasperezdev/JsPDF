@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useContext, useState} from 'react';
+import ReactDOM from 'react-dom';
+
+import Formulario from './componentes/Formulario'
+import MostrarPDF from './componentes/MostrarPDF';
+
+import PdfState from './context/PDFState';
+
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+<PdfState>
+  <div className="container-fluid vh-100">
+    <div className="row">
+      <div className="col-6">
+        <Formulario/>
+      </div>
+      <div className="col-6 vh-100 d-inline-block">
+          <MostrarPDF/>
+      </div>
     </div>
+  </div>
+</PdfState>
   );
 }
 
